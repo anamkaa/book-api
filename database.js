@@ -13,12 +13,12 @@ const books =[
 
 const author =[
     {
-        id:1,
+        id:"1",
         name:"Aradhana",
         books:["12345Book","secret book"]
     },
     {
-        id:2,
+        id:"2",
         name:"Elon Musk",
         books:["12345Book"]
     }
@@ -27,7 +27,7 @@ const author =[
 
 const publication =[
     {
-        id:1,
+        id:"1",
         name:"writex",
         books:["12345Book"]
     }

@@ -18,12 +18,12 @@
 
 //2. AUTHORS 
 //We need an API :- 
-//To get all the authors 
-//To get a specific author 
-//To get a list of authors based on books 
+//To get all the authors - Done
+//To get a specific author - Done
+//To get a list of authors based on books - Done
 
 //3. PUBLICATIONS
 //We need an API :-
-//To get all the publications 
-//To get a specific publication
-//To get a list of publications based on a book
+//To get all the publications - Done
+//To get a specific publication - Done
+//To get a list of publications based on a book - Done

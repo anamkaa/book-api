@@ -9,6 +9,8 @@ const database = require("./database");
 const booky = express();
 
 
+// book section starts
+
 /*
 /route         /
 /desciption    to get all the books
@@ -69,8 +71,111 @@ booky.get("/lan/:language",(request,response)=>{
     return response.json({book:getSpecificBook});
 })
 
+//book section ends
 
 
+
+//author section starts
+
+/*
+/route         /author
+/desciption    to get all the books by author
+/access        public
+/parameter     none
+/method        get
+*/
+
+booky.get("/author",(request,response)=>{
+    return response.json({authors:database.author});
+});
+
+
+/*
+/route         /author
+/desciption    to get specific author by id
+/access        public
+/parameter     id
+/method        get
+*/
+
+booky.get("/author/:id",(request,response)=>{
+    const getSpecificAuthor = database.author.filter((author)=>author.id===request.params.id);
+    if(getSpecificAuthor.length===0){
+        return response.json({error:`No author found for the category based on ${request.params.id}`});
+    }
+    return response.json({authors:getSpecificAuthor});
+});
+
+
+/*
+/route         /author/book
+/desciption    to get specific author by book
+/access        public
+/parameter     isbn
+/method        get
+*/
+
+booky.get("/author/book/:isbn",(request,response)=>{
+    const getSpecificAuthor = database.author.filter((author)=>author.books.includes(request.params.isbn));
+    if(getSpecificAuthor.length===0){
+        return response.json({error:`No book found for category besed on ${request.params.isbn}`});
+    }
+    return response.json({authors:getSpecificAuthor});
+})
+
+// author section ends
+
+
+
+// publication section starts
+
+/*
+/route         /publication
+/desciption    to get all publications
+/access        public
+/parameter     none
+/method        get
+*/
+
+booky.get("/publication",(request,response)=>{
+    return response.json({publications:database.publication});
+})
+
+
+/*
+/route         /publication
+/desciption    to get a specific publication
+/access        public
+/parameter     id
+/method        get
+*/
+
+booky.get("/publication/:id",(request,response)=>{
+    const getSpecificPublication = database.publication.filter((publication)=>publication.id===request.params.id);
+    if(getSpecificPublication.length===0){
+        return response.json({error:`No book found for category of ${request.params.id}`});
+    }
+    return response.json({publications:getSpecificPublication});
+});
+
+
+/*
+/route         /publication/book
+/desciption    to get a publication by book
+/access        public
+/parameter     isbn
+/method        get
+*/
+
+booky.get("/publication/book/:isbn",(request,response)=>{
+    const getSpecificPublication = database.publication.filter((publication)=>publication.books.includes(request.params.isbn));
+    if(getSpecificPublication.length===0){
+        return response.json({error:`No book found for category of ${request.params.isbn}`});
+    }
+    return response.json({publications:getSpecificPublication});
+})
+
+// publication section ends
 
 
 //localhost
