@@ -27,3 +27,10 @@
 //To get all the publications - Done
 //To get a specific publication - Done
 //To get a list of publications based on a book - Done
+
+//DELETE
+
+//Schema 
+
+//line 150 index.js
+//line 206 index.js
